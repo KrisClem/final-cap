@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { finishTable} from "../utils/api";
+import { finishTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 
 
@@ -34,7 +34,7 @@ export default function ListTables({tables, loadDashboard, loadTables}){
                     <td><p data-table-id-status={table.table_id}>Occupied</p></td>
                     <td><button data-table-id-finish={table.table_id} className="btn btn-outline-primary" onClick={() => handleFinished(table.table_id)}>Finish</button></td>
                 </tr> : 
-                  <tr key={index}>
+                  <tr key={table.table_id}>
                   <th scope="row">{table.table_id}</th>
                   <td>{table.table_name}</td>
                   <td>{table.capacity}</td>

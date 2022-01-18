@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import ListReservations from '../dashboard/ListReservation';
 import { listReservations } from '../utils/api';
+import ErrorAlert from '../layout/ErrorAlert'
 
 function SearchReservation () {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [reservations, setReservations] = useState(null)
+  const [error, setError] = useState(null)
 
   const handleSearch = (event) => {
       event.preventDefault();
@@ -12,9 +14,12 @@ function SearchReservation () {
       .then((response) => {
           setReservations(response);
       })
+      .catch(setError)
   }
 
   return (
+    <div>
+      <ErrorAlert error={error} />
     <main>
       <h1>Search for a Reservation by Phone Number</h1>
       <form>
@@ -42,6 +47,7 @@ function SearchReservation () {
           </div>
       )}
     </main>
+    </div>
   )
 }
 
