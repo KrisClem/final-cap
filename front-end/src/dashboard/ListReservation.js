@@ -24,7 +24,7 @@ function ListReservations({reservations, loadDashboard}){
    const displayReservations = reservations.map((reservation, index) => {
         
         return (
-            <tr key={index}>
+            <tr key={reservation.reservation_id}>
                 <th scope="row">{reservation.reservation_id}</th>
                 <td>{reservation.first_name}</td>
                 <td>{reservation.last_name}</td>
